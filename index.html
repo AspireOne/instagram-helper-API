@@ -9,18 +9,35 @@
 <body>
 <p>Api for Instagram Helper android app</p>
 <p>Output:</p>
-<p id="output"></p>
+<pre id="output">Waiting...</pre>
 
 <script defer>
+    const output = document.getElementById("output");
+    const outputAnimation = ["Waiting", "Waiting.", "Waiting..", "Waiting..."];
+    let animationIndex = 0;
+    let fetched = false;
+    const intervalId = setInterval(() => {
+        if (fetched) {
+            clearInterval(intervalId);
+            return;
+        }
+        output.innerText = outputAnimation[animationIndex++];
+        if (animationIndex >= outputAnimation.length)
+            animationIndex = 0;
+    }, 200);
+
     fetch('/.netlify/functions/get-direct', {
         method: 'post',
         body: JSON.stringify({
             user_id: 1232,
             url: "youtube.com/watch?v=ee9rgE-fpLo"
+            })
         })
-    })
         .then((response) => response.json())
-        .then((body) => document.write(body.url || body.error || "undefined_error :("))
+        .then((body) => {
+            fetched = true;
+            output.innerText = JSON.stringify(body, null, 4);
+        })
 </script>
 </body>
 </html>

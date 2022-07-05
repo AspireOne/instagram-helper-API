@@ -1,5 +1,5 @@
 node_modules/
-
+netlify.toml
 # ignore composer vendor directory
 /vendor
 
@@ -27,7 +27,6 @@ Thumbs.db
 *.com
 *.class
 *.dll
-*.exe
 *.o
 *.so
 
@@ -56,3 +55,5 @@ Thumbs.db
 !.gitignore
 !.nvmrc
 !.phpcs.xml.dist
+# Local Netlify folder
+.netlify

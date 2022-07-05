@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Instagram Helper API</title>
+</head>
+<body>
+<p>Api for Instagram Helper android app</p>
+<p>Output:</p>
+<p id="output"></p>
+
+<script defer>
+    fetch('/.netlify/functions/get-direct', {
+        method: 'post',
+        body: JSON.stringify({
+            user_id: 1232,
+            url: "youtube.com/watch?v=ee9rgE-fpLo"
+        })
+    })
+        .then((response) => response.json())
+        .then((body) => document.write(body.url || body.error || "undefined_error :("))
+</script>
+</body>
+</html>

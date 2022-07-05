@@ -3,9 +3,10 @@ import {create} from "domain";
 import {Context} from "vm";
 import path = require("path");
 
-const { create: createYoutubeDl } = require('youtube-dl-exec')
+const youtubedl = require('youtube-dl-exec');
+//const { create: createYoutubeDl } = require('youtube-dl-exec')
+//const youtubedl = createYoutubeDl(binary);
 const binary = require.resolve("../youtube-dl.exe");
-const youtubedl = createYoutubeDl(binary);
 
 const youtubeUrlRegex = "^((?:https?:)?\\/\\/)?((?:www|m)\\.)?((?:youtube(-nocookie)?\\.com|youtu.be))(\\/(?:[\\w\\-]+\\?v=|embed\\/|v\\/)?)([\\w\\-]+)(\\S+)?$";
 

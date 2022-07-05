@@ -13,13 +13,20 @@ export const handler: Handler = async (event, context) => {
   try {
     return await execute(event, context);
   } catch (error) {
-    JSON.stringify(error, null, 4);
+    console.log(JSON.stringify(error, null, 4));
     return getErrResponse(500, "Internal server error.");
   }
 }
 
 async function execute(event, context) {
-  const body = JSON.parse(event.body);
+  let body;
+
+  try {
+    body = JSON.parse(event.body);
+  } catch (error) {
+    body = "";
+  }
+
   /*if (!body.user_id)
     return getErrResponse(400, "User ID is not present.");*/
 
@@ -54,7 +61,7 @@ async function execute(event, context) {
 }
 
 function validateYoutubeUrl(url: string) {
-  return new RegExp(youtubeUrlRegex, "i").test(url);
+  return url && new RegExp(youtubeUrlRegex, "i").test(url);
 }
 
 // TODO: Add defined error ID with associated text.

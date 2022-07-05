@@ -1,5 +1,5 @@
 node_modules/
-netlify.toml
+#netlify.toml
 # ignore composer vendor directory
 /vendor
 

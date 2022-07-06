@@ -28,3 +28,4 @@
 
 [functions]
   included_files = ["netlify/youtube-dl.exe"]
+  node_bundler = "esbuild"

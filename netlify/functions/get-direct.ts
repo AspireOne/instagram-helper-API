@@ -7,6 +7,7 @@ const youtubedl = require('youtube-dl-exec');
 //const { create: createYoutubeDl } = require('youtube-dl-exec')
 //const youtubedl = createYoutubeDl(binary);
 const binary = require.resolve("../youtube-dl.exe");
+console.log("BINARY: " + binary);
 
 const youtubeUrlRegex = "^((?:https?:)?\\/\\/)?((?:www|m)\\.)?((?:youtube(-nocookie)?\\.com|youtu.be))(\\/(?:[\\w\\-]+\\?v=|embed\\/|v\\/)?)([\\w\\-]+)(\\S+)?$";
 

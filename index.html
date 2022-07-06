@@ -33,11 +33,12 @@
             url: "youtube.com/watch?v=ee9rgE-fpLo"
             })
         })
-        .then((response) => response.json())
-        .then((body) => {
+        .then((response) => {
             fetched = true;
-            output.innerText = JSON.stringify(body, null, 4);
+            return response.json();
         })
+        .then((body) => output.innerText = JSON.stringify(body, null, 4))
+        .catch(err => output.innerText = JSON.stringify(err, null, 4))
 </script>
 </body>
 </html>
